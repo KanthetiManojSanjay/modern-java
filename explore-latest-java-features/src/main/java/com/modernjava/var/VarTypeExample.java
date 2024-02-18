@@ -2,6 +2,7 @@ package com.modernjava.var;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 public class VarTypeExample {
 
@@ -19,6 +20,9 @@ public class VarTypeExample {
         System.out.println("map : " + map);
         var transformedName = transform("hari");
         System.out.println("transformedName : " + transformedName);
+
+        Predicate<Integer> isEven = (var num) -> num % 2 == 0;
+        System.out.println("isEven : " + isEven.test(10));
 
         /**
          var is not a reserved keyword so we can use var as variable name
