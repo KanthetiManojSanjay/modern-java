@@ -9,6 +9,8 @@ import java.util.stream.Stream;
  */
 public class OptionalDemo {
     public static void main(String[] args) {
+
+        // Java 9 Improvement 1
         //Optional<String> greeting = Optional.empty();
         Optional<String> greeting = Optional.of("Hello");
 
@@ -21,25 +23,25 @@ public class OptionalDemo {
 
 
         Optional<String> name = Optional.ofNullable("Vinay");
-        // Approach 1
+        // Old Approach 1
         if (name.isPresent()) {
             System.out.println("Hello " + name);
         } else {
             System.out.println("hello");
         }
 
-        // Approach 2
+        // Old Approach 2
         name.ifPresent(value -> System.out.println("Hello " + value));
 
 
-        // Java 9 Improvement 1
+        // Java 9 Improvement 2
         name.ifPresentOrElse(
                 value -> System.out.println("Hello " + value),
                 () -> System.out.println("hello")
         );
 
 
-        //  // Java 9 Improvement 2
+        //  // Java 9 Improvement 3
         //  Optional.stream will return empty stream if optional is empty. It will filter out non empty optionals.
         Optional<String> myOptional = Optional.of("foo");
         Stream<String> stream = myOptional.stream();
